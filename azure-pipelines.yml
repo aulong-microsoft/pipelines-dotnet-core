@@ -15,3 +15,9 @@ variables:
 steps:
 - script: dotnet build --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
+- task: SonarQubePrepare@4
+  inputs:
+    SonarQube: 'azdosonarqube'
+    scannerMode: 'MSBuild'
+    projectKey: 'AudreyTestProj_AudreyTestProj'
+    projectName: 'audreysonar'
